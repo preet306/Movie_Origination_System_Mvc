@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Movie_Origination_System_Mvc.Models.Movie_Origination_Table>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie_Producer_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie_Director_ID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie_Producer_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie_Director_ID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Movie_Origination_ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Movie_Origination_ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Movie_Origination_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
